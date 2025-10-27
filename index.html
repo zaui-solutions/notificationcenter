@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAUI Notifications Centre: The Intelligence Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark mode background for tech feel */
+            background-color: #0d1117; 
+            color: #e5e7eb;
+        }
+        /* Style for the main category cards */
+        .category-card {
+            background-color: #161b22; /* Darker than body, lighter than elements */
+            border-left-width: 4px;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            /* Base transition for movement */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        /* Style for individual event items within a card */
+        .event-item {
+            padding: 0.75rem;
+            background-color: #0d1117; 
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+            border-left-width: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            /* Base transition for movement */
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .event-item:hover {
+            background-color: #111a26; /* Slightly lighter on hover */
+            transform: translateX(4px); /* Subtle horizontal movement */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .ai-gradient-text {
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(to right, #4f46e5, #ec4899);
+        }
+        .main-hero-image {
+            width: 100%;
+            max-height: 550px; 
+            object-fit: cover;
+            object-position: center;
+            border-bottom: 4px solid #4f46e5;
+            margin-top: 2rem; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            cursor: pointer; /* Indicate clickability */
+            transition: transform 0.2s;
+        }
+        .main-hero-image:hover {
+            transform: scale(1.01);
+        }
+        
+        /* Modal (Lightbox) Styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        #modalImage {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1000px;
+            max-height: 90vh;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Icon Styles with Movement */
+        .icon-container {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category-card:hover .icon-container {
+            transform: rotate(5deg) scale(1.1);
+        }
+    </style>
+    <script>
+        // Modal / Lightbox Functions
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const heroImg = document.querySelector('.main-hero-image');
+            
+            modal.style.display = "block";
+            modalImg.src = heroImg.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Modal (Lightbox) Structure -->
+    <div id="imageModal" onclick="closeModal()">
+        <span class="close" title="Close Modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Header & Navigation (Informational) --><header class="shadow-lg p-6 bg-gray-900 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-indigo-400">ZAUI Notifications Centre</h1>
+            <p class="text-gray-400 hidden sm:block">The Centralized Intelligence Catalog for ZAUI Core 2.0</p>
+        </div>
+    </header>
+
+    <!-- Info Page Header --><section class="py-16 text-center bg-gray-900 border-b border-gray-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl font-extrabold leading-tight">
+                All-In-One Intelligence: The <span class="ai-gradient-text">6 Pillars</span> of the Notifications Centre
+            </h2>
+            <p class="mt-4 text-xl text-gray-400">
+                The Notifications Centre consolidates and categorizes every critical platform event, from prescriptive AI recommendations to system security alerts, ensuring no operational detail is missed.
+            </p>
+            <!-- Main Hero Image --><div class="w-full bg-gray-900 overflow-hidden">
+                <img 
+                    src="https://lh3.googleusercontent.com/sitesv/AAzXCkccy5hEmaZabBLc4I45KkIbjCh7mABmmogKhcE0goeGfT1A_p2fhSRYDSShcxcLeLFX53pk1NY0I4kYDgSvCFac9hkHFoNJxkulNpHz-Wyai1icFDqVA7vZCv_rxJjBM2tCTYicO9UHf_aGPG8w6IogCPrYBBCMP07syLQ5aQzFLSSlq1Y0GMiH3fS0wpJ98PwajW1TKIDJHKJSOsy31KEYyKlRa_KTHdv8KAs=w1280" 
+                    alt="Main ZAUI Notifications Dashboard" 
+                    class="main-hero-image"
+                    onclick="openModal()"
+                    onerror="this.onerror=null;this.src='https://placehold.co/1920x550/161b22/8b5cf6?text=Main+Visual+Load+Error';"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: The 6 Pillars --><main class="py-20">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+
+            <!-- PILLAR 1: NARA AI INSIGHTS --><div class="category-card border-indigo-600">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="icon-container text-indigo-400">
+                        <!-- AI/Brain Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 0 9-9c0-6.24-5.04-9-9-9s-9 2.76-9 9a9 9 0 0 0 9 9z"/><path d="M8 12h8m-4 4V8"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold ai-gradient-text">Nara AI Insights (Revenue & Yield)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">Nara AI uses <span class="font-semibold text-white">Machine Learning</span> to find hidden patterns in your <span class="font-semibold text-white">historical and future sales data</span>. It delivers <span class="font-semibold text-yellow-400">prescriptive, high-value recommendations</span> in pricing and inventory, backed by confidence values (80%+ reliability) to maximize yield.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-pink-400 block text-lg font-semibold">Capacity Forecasting / Advanced Sellout</span>
+                        <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> "Sunset Kayak Tour" 5:00 PM slot sold out - consistently high demand.</p>
+                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Historical sellout: 6.3 days. Current sellout: 9 days in advance. <span class="font-semibold text-yellow-400">Action:</span> Adjust capacity/pricing.</p>
+                    </div>
+                    
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-white block text-lg font-semibold">Inventory Reallocation / Channel Optimization</span>
+                        <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> AI suggests reallocating 10 seats from Expedia to Direct for '9AM Walk-In Tour'.</p>
+                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Low channel utilization (16.7%). <span class="font-semibold text-yellow-400">Action:</span> Reallocate to higher-performing channel.</p>
+                    </div>
+                    
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-white block text-lg font-semibold">Missed Opportunity Valuation</span>
+                        <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> 15 empty seats on July 6 at 3PM represented a missed revenue opportunity.</p>
+                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Estimated loss of $1,200. <span class="font-semibold text-yellow-400">Action:</span> Implement dynamic inventory adjustments.</p>
+                    </div>
+                    
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-white block text-lg font-semibold">Risk Anomaly Detection</span>
+                        <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> High Cancellation Rate (22%) detected for Expedia on '2PM Tour'.</p>
+                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Outlier cancellation pattern detected. <span class="font-semibold text-yellow-400">Action:</span> Investigate channel or market conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 2: PLATFORM OPERATIONS --><div class="category-card border-indigo-600">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="icon-container text-indigo-400">
+                        <!-- Gear/Wrench Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V3M12 3a7 7 0 0 0-7 7v.2l-3 4.5h22l-3-4.5V10a7 7 0 0 0-7-7z"/><path d="M8 21h8"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white">Platform Operations (System Health & Configuration)</h3>
+                </div>
+                <p class="text-gray-400 mb-8">Monitors and alerts on critical system configurations, data quality, and pending expirations that can interrupt sales or violate compliance. This is your engine health check, categorized by impact.</p>
+                
+                <div class="grid lg:grid-cols-3 gap-6">
+                    
+                    <!-- Sub-Category 1: Critical: Sales Failure (Red) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-red-600">
+                        <h4 class="text-xl font-bold text-red-400 mb-3">Critical: Sales Failure (Red)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Events that indicate a configuration has expired, immediately stopping bookings, breaking links, or causing operational outages.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Expired Product: {name} No Longer Available</span>
+                                <span class="text-xs text-gray-500 mt-1">Product passed expiration date. Action required to restore availability.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Expired Departure Schedule: No Longer Bookable</span>
+                                <span class="text-xs text-gray-500 mt-1">All departure times have passed. Activity is now unbookable.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Booking Engine {portalName} has expired</span>
+                                <span class="text-xs text-gray-500 mt-1">Booking engine passed expiration date but is still live, causing broken links.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Category 2: Warning: Proactive Expirations (Yellow) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-yellow-600">
+                        <h4 class="text-xl font-bold text-yellow-400 mb-3">Warning: Proactive Expirations (Yellow)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Alerts that provide advance notice of scheduled or pending expirations that require action to prevent a future sales interruption.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Upcoming Expiration: Price Code / Rate Code</span>
+                                <span class="text-xs text-gray-500 mt-1">Price code or account-level rate code is expiring soon, impacting pricing or B2B contracts.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Upcoming Expiration: Departure Times / Activity</span>
+                                <span class="text-xs text-gray-500 mt-1">Departure times or the activity itself are set to expire soon, stopping future bookings.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Upcoming Expiration: Booking Engine / Seasonal Hours</span>
+                                <span class="text-xs text-gray-500 mt-1">Booking portal or seasonal business hours are nearing expiration.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Upcoming Expiration: Pickup/Dropoff / Channel Rule</span>
+                                <span class="text-xs text-gray-500 mt-1">Logistic locations, equipment downtime, or channel rules are set to expire.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Category 3: Warning: Data Quality (Indigo) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-indigo-600">
+                        <h4 class="text-xl font-bold text-indigo-400 mb-3">Warning: Data Quality (Indigo)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Alerts focused on missing content that degrades product presentation and reduces conversion rates across all sales channels.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-indigo-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Missing Image: {name} has no assigned media</span>
+                                <span class="text-xs text-gray-500 mt-1">Product is missing a required image, resulting in poor presentation.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-indigo-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Missing primary description: {name} has no description</span>
+                                <span class="text-xs text-gray-500 mt-1">Product is missing its primary description, impacting SEO and customer information.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-indigo-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Empty Category: {name} Has No Assigned Items (Info)</span>
+                                <span class="text-xs text-gray-500 mt-1">Category is empty, confusing customers or cluttering configuration.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 3: SECURITY & ACCESS --><div class="category-card border-yellow-600">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="icon-container text-yellow-400">
+                        <!-- Security Shield Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 17V12M12 12L16 8M12 12L8 8"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white">Security & Access (Compliance & Threat Detection)</h3>
+                </div>
+                <p class="text-gray-400 mb-8">The essential tool for IT teams and compliance officers. Provides a detailed audit trail and real-time alerts on suspicious login behavior, user governance changes, and potential security threats. We categorize events by risk level for immediate action.</p>
+                
+                <div class="grid lg:grid-cols-3 gap-6">
+                    
+                    <!-- Sub-Category 1: Account Inactivity & Hygiene (Low Risk / Green) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-green-600">
+                        <h4 class="text-xl font-bold text-green-400 mb-3">Low Risk: Account Hygiene (Green)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Automated deactivation of dormant accounts to reduce risk exposure and maintain performance.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-green-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Customer Inactivity Deactivation</span>
+                                <span class="text-xs text-gray-500 mt-1">Account deactivated due to prolonged non-use.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-green-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Employee Auto-Deactivation (Inactivity)</span>
+                                <span class="text-xs text-gray-500 mt-1">Employee account auto-deactivated based on retention thresholds.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-green-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Agent Auto-Deactivation (Inactivity)</span>
+                                <span class="text-xs text-gray-500 mt-1">Agent account auto-deactivated based on retention thresholds.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Category 2: Failed Access & Anomalous Login (Medium Risk / Yellow) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-yellow-600">
+                        <h4 class="text-xl font-bold text-yellow-400 mb-3">Medium Risk: Anomalous Login (Yellow)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Events indicating potential unauthorized access attempts or unusual user behavior patterns.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Multiple Failed Logins</span>
+                                <span class="text-xs text-gray-500 mt-1">Logged for Customer, Agent, and Employee accounts (Brute-force detection).</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">New Device/Location Login</span>
+                                <span class="text-xs text-gray-500 mt-1">Login from a new, unrecognized device or location.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Concurrent Login Detected</span>
+                                <span class="text-xs text-gray-500 mt-1">Same user logged in from two distant IPs simultaneously.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Login Outside Work Hours</span>
+                                <span class="text-xs text-gray-500 mt-1">Employee access detected outside expected business hours.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Category 3: High-Risk & System Integrity (High Risk / Red) --><div class="bg-gray-900 p-4 rounded-xl shadow-lg border-t-4 border-red-600">
+                        <h4 class="text-xl font-bold text-red-400 mb-3">High Risk: System Integrity (Red)</h4>
+                        <p class="text-sm text-gray-500 mb-3">Critical events indicating potential attacks or sensitive modifications that affect data or system security.</p>
+                        <ul class="space-y-3">
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Potential Code Injection Attempt</span>
+                                <span class="text-xs text-gray-500 mt-1">Suspicious or malicious code detected in submitted content/config.</span>
+                            </li>
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Employee Permissions Update</span>
+                                <span class="text-xs text-gray-500 mt-1">Global menu/module permissions modified (High-value target).</span>
+                            </li>
+                            <li class="event-item border-l-4 border-red-500 bg-gray-800">
+                                <span class="text-white block text-sm font-semibold">Sensitive Admin Action Logged</span>
+                                <span class="text-xs text-gray-500 mt-1">Action like clearing credit card data performed by admin-level user.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 4: ANNOUNCEMENTS & RELEASES --><div class="category-card border-pink-600">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="icon-container text-pink-400">
+                        <!-- Megaphone/Announce Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h3a4 4 0 0 1 0 8h-3l-4 4V1l4 4z"/><path d="M12 9l2 2"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white">Announcements & Releases (Product Updates)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">Ensures your sales and operations teams are instantly aware of ZAUI's continuous platform evolution. This acts as the centralized source of truth for new features and system updates.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-white block text-lg font-semibold">Feature Rollout Notification</span>
+                        <p class="text-sm mt-1 text-gray-400">Immediate alerts when a major new capability is released (e.g., the new Passes system, enhanced Calendar Overview, or dynamic pricing tools).</p>
+                    </div>
+                    <div class="event-item border-l-4 border-pink-500">
+                        <span class="text-white block text-lg font-semibold">Platform Release Notes</span>
+                        <p class="text-sm mt-1 text-gray-400">Standardized delivery of release notes and version updates, ensuring all internal stakeholders are working from the same product knowledge base.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 5: SUPPORT TICKETS --><div class="category-card border-blue-600">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="icon-container text-blue-400">
+                        <!-- Support Headset Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1M12 2a10 10 0 0 1 10 10v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1a6 6 0 0 0-6-6H9a6 6 0 0 0-6 6v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1A10 10 0 0 1 12 2z"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white">Support Tickets (Service Communication)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">Centralizes all <span class="font-semibold text-white">open support issues with the ZAUI team</span> (e.g., Zendesk), ensuring no critical issue or escalation is missed, providing a single source for status updates.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="event-item border-l-4 border-blue-500">
+                        <span class="text-white block text-lg font-semibold">Real-Time Status Updates</span>
+                        <p class="text-sm mt-1 text-gray-400">Instant notification of ticket creation, status changes, and internal escalation to engineering or product teams.</p>
+                    </div>
+                    <div class="event-item border-l-4 border-blue-500">
+                        <span class="text-white block text-lg font-semibold">Agent Response Notification</span>
+                        <p class="text-sm mt-1 text-gray-400">Alerts the relevant user immediately when a support agent has replied to an inquiry or requested more information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PILLAR 6: INTEGRATIONS & MARKETPLACE --><div class="category-card border-green-600">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="icon-container text-green-400">
+                        <!-- Connectors Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V3M10 5l4 4M10 19l4-4M5 12H2a10 10 0 0 0 18 0h-3M19 12h3a10 10 0 0 1-18 0h3"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white">Integrations & Marketplace (Connectivity Health)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">Protects your external revenue pipelines. Monitors the health and stability of all third-party connections, including OTAs, payment gateways, and direct API links.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="event-item border-l-4 border-green-500">
+                        <span class="text-white block text-lg font-semibold">API Change Notification</span>
+                        <p class="text-sm mt-1 text-gray-400">Notifies technical users when there are updates, changes, or deprecations to the core ZAUI API, referencing the <span class="font-semibold text-white">docs.zaui.com</span> resource.</p>
+                    </div>
+                    <div class="event-item border-l-4 border-green-500">
+                        <span class="text-white block text-lg font-semibold">Channel Health Monitoring</span>
+                        <p class="text-sm mt-1 text-gray-400">Alerts to instability or failure in connections to key partners like Viator or Expedia, or payment systems (WePay/Alipay).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer --><footer class="p-6 text-center text-gray-500 bg-gray-900 border-t border-gray-800">
+        &copy; 2025 ZAUI. All rights reserved. | Data Source: System Event Logs (ZAUI Core 2.0)
+    </footer>
+
+</body>
+</html>
