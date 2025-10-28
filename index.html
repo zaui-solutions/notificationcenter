@@ -135,8 +135,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- Modal (Lightbox) Structure -->
-    <div id="imageModal" onclick="closeModal()">
+    <!-- Modal (Lightbox) Structure --><div id="imageModal" onclick="closeModal()">
         <span class="close" title="Close Modal">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
@@ -174,7 +173,10 @@
             <!-- PILLAR 1: NARA AI INSIGHTS --><div class="category-card border-indigo-600">
                 <div class="flex items-center space-x-4 mb-8">
                     <div class="icon-container text-indigo-400">
-                        <!-- AI/Brain Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 0 9-9c0-6.24-5.04-9-9-9s-9 2.76-9 9a9 9 0 0 0 9 9z"/><path d="M8 12h8m-4 4V8"/></svg>
+                        <!-- AI/Brain Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
+                        </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold ai-gradient-text">Nara AI Insights (Revenue & Yield)</h3>
                 </div>
@@ -185,33 +187,46 @@
                     <div class="event-item border-l-4 border-pink-500">
                         <span class="text-pink-400 block text-lg font-semibold">Capacity Forecasting / Advanced Sellout</span>
                         <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> "Sunset Kayak Tour" 5:00 PM slot sold out - consistently high demand.</p>
-                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Historical sellout: 6.3 days. Current sellout: 9 days in advance. <span class="font-semibold text-yellow-400">Action:</span> Adjust capacity/pricing.</p>
+                        <p class="p-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Historical sellout: 6.3 days. Current sellout: 9 days in advance. <span class="font-semibold text-yellow-400">Action:</span> Adjust capacity/pricing.</p>
                     </div>
                     
                     <div class="event-item border-l-4 border-pink-500">
                         <span class="text-white block text-lg font-semibold">Inventory Reallocation / Channel Optimization</span>
                         <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> AI suggests reallocating 10 seats from Expedia to Direct for '9AM Walk-In Tour'.</p>
-                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Low channel utilization (16.7%). <span class="font-semibold text-yellow-400">Action:</span> Reallocate to higher-performing channel.</p>
+                        <p class="p-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Low channel utilization (16.7%). <span class="font-semibold text-yellow-400">Action:</span> Reallocate to higher-performing channel.</p>
                     </div>
                     
                     <div class="event-item border-l-4 border-pink-500">
                         <span class="text-white block text-lg font-semibold">Missed Opportunity Valuation</span>
                         <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> 15 empty seats on July 6 at 3PM represented a missed revenue opportunity.</p>
-                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Estimated loss of $1,200. <span class="font-semibold text-yellow-400">Action:</span> Implement dynamic inventory adjustments.</p>
+                        <p class="p-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Estimated loss of $1,200. <span class="font-semibold text-yellow-400">Action:</span> Implement dynamic inventory adjustments.</p>
                     </div>
                     
                     <div class="event-item border-l-4 border-pink-500">
                         <span class="text-white block text-lg font-semibold">Risk Anomaly Detection</span>
                         <p class="text-sm mt-1 text-gray-400"><span class="font-semibold text-white">Insight:</span> High Cancellation Rate (22%) detected for Expedia on '2PM Tour'.</p>
-                        <p class="text-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Outlier cancellation pattern detected. <span class="font-semibold text-yellow-400">Action:</span> Investigate channel or market conditions.</p>
+                        <p class="p-xs mt-1 text-gray-500"><span class="font-semibold text-gray-300">Data:</span> Outlier cancellation pattern detected. <span class="font-semibold text-yellow-400">Action:</span> Investigate channel or market conditions.</p>
                     </div>
+                </div>
+
+                <!-- NEW: Full-width Nara AI Example Image --><div class="mt-8 rounded-xl overflow-hidden shadow-2xl">
+                    <img
+                        src="https://lh3.googleusercontent.com/sitesv/AAzXCkf2CNXJ1LJeOekhjRTRlS3SOWahbG0erjSqQEQbKtdqbWYA8YLI8A17RvUFGiDL0WfWjbHnScmlREpKQ_3_OG3IK5rk1gQRjlChrI975oqUpIyhjtk74K5F0PyzFeZz_E6FV9dis9US0AYqt_9GWwrXbJvccHe-Xz64fEW-T31Gx2uifb3_kR_gOT8DkpGaxRPeal6pDzIcZiABpKUDpjifWE3YQ_B0MXs68Jg=w1280"
+                        alt="Detailed view of a Nara AI Insight interface"
+                        class="w-full h-auto object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/161b22/8b5cf6?text=AI+Example+Image+Load+Error';"
+                    />
+                    <p class="text-center text-sm text-gray-500 p-2 bg-gray-900">Detailed view of a single Nara AI Insight, showing data context and suggested actions.</p>
                 </div>
             </div>
 
             <!-- PILLAR 2: PLATFORM OPERATIONS --><div class="category-card border-indigo-600">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="icon-container text-indigo-400">
-                        <!-- Gear/Wrench Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V3M12 3a7 7 0 0 0-7 7v.2l-3 4.5h22l-3-4.5V10a7 7 0 0 0-7-7z"/><path d="M8 21h8"/></svg>
+                        <!-- Clock Icon (for expiration) --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-white">Platform Operations (System Health & Configuration)</h3>
                 </div>
@@ -285,7 +300,7 @@
             <!-- PILLAR 3: SECURITY & ACCESS --><div class="category-card border-yellow-600">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="icon-container text-yellow-400">
-                        <!-- Security Shield Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 17V12M12 12L16 8M12 12L8 8"/></svg>
+                        <!-- Security Shield Icon (Existing and approved) --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 17V12M12 12L16 8M12 12L8 8"/></svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-white">Security & Access (Compliance & Threat Detection)</h3>
                 </div>
@@ -327,6 +342,7 @@
                             <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
                                 <span class="text-white block text-sm font-semibold">Concurrent Login Detected</span>
                                 <span class="text-xs text-gray-500 mt-1">Same user logged in from two distant IPs simultaneously.</span>
+                            </p>
                             </li>
                             <li class="event-item border-l-4 border-yellow-500 bg-gray-800">
                                 <span class="text-white block text-sm font-semibold">Login Outside Work Hours</span>
@@ -359,7 +375,9 @@
             <!-- PILLAR 4: ANNOUNCEMENTS & RELEASES --><div class="category-card border-pink-600">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="icon-container text-pink-400">
-                        <!-- Megaphone/Announce Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h3a4 4 0 0 1 0 8h-3l-4 4V1l4 4z"/><path d="M12 9l2 2"/></svg>
+                        <!-- Bell Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9m2 13a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+                        </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-white">Announcements & Releases (Product Updates)</h3>
                 </div>
@@ -380,7 +398,11 @@
             <!-- PILLAR 5: SUPPORT TICKETS --><div class="category-card border-blue-600">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="icon-container text-blue-400">
-                        <!-- Support Headset Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1m-5 0c0-3 4-5 4-5l1-1M12 2a10 10 0 0 1 10 10v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1a6 6 0 0 0-6-6H9a6 6 0 0 0-6 6v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1A10 10 0 0 1 12 2z"/></svg>
+                        <!-- Help Circle Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 10a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <path d="M12 17h.01"/>
+                        </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-white">Support Tickets (Service Communication)</h3>
                 </div>
@@ -401,7 +423,10 @@
             <!-- PILLAR 6: INTEGRATIONS & MARKETPLACE --><div class="category-card border-green-600">
                 <div class="flex items-center space-x-4 mb-4">
                     <div class="icon-container text-green-400">
-                        <!-- Connectors Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V3M10 5l4 4M10 19l4-4M5 12H2a10 10 0 0 0 18 0h-3M19 12h3a10 10 0 0 1-18 0h3"/></svg>
+                        <!-- Link Icon --><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-white">Integrations & Marketplace (Connectivity Health)</h3>
                 </div>
